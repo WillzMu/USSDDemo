@@ -17,14 +17,14 @@ app.post('*', (req, res) => {
   let {sessionId, serviceCode, phoneNumber, text} = req.body
   if (text == '') {
     // This is the first request. Note how we start the response with CON
-    let response = `CON What would you want to check
+    let response = `CON Welcome to Service Online
     1. Find a job
     2. Hire Someone
     3. Update profile`
     res.send(response)
   } else if (text == '1') {
     // Business logic for first level response
-    let response = `CON Choose account information you want to view
+    let response = `CON Find a job
     1. Change status to available`
     res.send(response)
   } else if (text == '2') {
