@@ -18,37 +18,30 @@ app.post('*', (req, res) => {
   if (text == '') {
     // This is the first request. Note how we start the response with CON
     let response = `CON What would you want to check
-    1. Find a job
-    2. Hire Someone
-    3. Update profile`
+    1. My Account
+    2. My phone number`
     res.send(response)
   } else if (text == '1') {
     // Business logic for first level response
     let response = `CON Choose account information you want to view
-    1. Change status to available`
+    1. Account number
+    2. Account balance`
     res.send(response)
   } else if (text == '2') {
     // Business logic for first level response
-    let response = `CON Categories
-    1. House Cleaner
-    2. Yard Cleaner
-    3. Carpenter
-    4. More
-    5. Back`
+    let response = `END Your phone number is ${phoneNumber}`
     res.send(response)
   } else if (text == '1*1') {
     // Business logic for first level response
     let accountNumber = 'ACC1001'
     // This is a terminal request. Note how we start the response with END
-    let response = `END we will contact you once a suitable employee has been found`
+    let response = `END Your account number is ${accountNumber}`
     res.send(response)
-  } else if (text == '2*1') {
+  } else if (text == '1*2') {
     // This is a second level response where the user selected 1 in the first instance
-    let response = `CON List of available House Cleaners
-    1. Mr. Mwenda K30/day
-    2. Mr. Sakala K35/day
-    3. Mr. Banda K32/day`
+    let balance = 'NGN 10,000'
     // This is a terminal request. Note how we start the response with END
+    let response = `END Your balance is ${balance}`
     res.send(response)
   } else {
     res.status(400).send('Bad request!')
