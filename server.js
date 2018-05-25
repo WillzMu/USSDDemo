@@ -10,17 +10,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('*', (req, res) => {
-  res.send('This is tutorial App on creating your first USSD app in 5 minutes or less by Ajala Abdulsamii <kgasta@gmail.com>')
+  var personalDetails = ["wilfred"]
+  res.send(personalDetails)
 })
 
 app.post('*', (req, res) => {
   let {sessionId, serviceCode, phoneNumber, text} = req.body
+  var personalDetails = ["wilfred"]
   if (text == '') {
     // This is the first request. Note how we start the response with CON
     let response = `CON Welcome to Service Online
     1. Find a job
     2. Hire Someone
-    3. Update profile`
+    3. Create profile`
     res.send(response)
   } else if (text == '1') {
     // Business logic for first level response
@@ -50,7 +52,12 @@ app.post('*', (req, res) => {
     3. Mr. Banda K32/day`
     // This is a terminal request. Note how we start the response with END
     res.send(response)
-  } else {
+  } else if(text == '3'){
+    let response = `CON Personal Information
+    1. Full Name`
+    res.send(response)
+  }
+   else {
     res.status(400).send('Bad request!')
   }
 })
