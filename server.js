@@ -56,8 +56,8 @@ app.post('*', (req, res) => {
     let response = `CON Personal Information
     1. Full Name`
     personalDetails.push(response)
-    let reponse =  `END ` + personalDetails
-    res.send(response)
+   // let reponse =  `END ` + personalDetails
+    res.send(personalDetails)
   }else if(text == '3'+ response)
   //let response = `CON `+personalDetails + ` `
     res.send(personalDetails)
