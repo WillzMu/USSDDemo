@@ -55,8 +55,11 @@ app.post('*', (req, res) => {
   } else if(text == '3'){
     let response = `CON Personal Information
     1. Full Name`
+    personalDetails.response
     res.send(response)
-  }
+  }else if(text == '3'+response)
+  //let response = `CON `+personalDetails + ` `
+    res.send(personalDetails)
    else {
     res.status(400).send('Bad request!')
   }
