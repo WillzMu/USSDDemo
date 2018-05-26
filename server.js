@@ -58,8 +58,11 @@ app.post('*', (req, res) => {
     let fullname = response
     res.send(response)
     
-  }else if(text == fullname){
+  }else if(text == "3*1"){
+    let response = `CON Personal Information
+    1. Phone Number`
     console.log(fullname)
+    res.send(response)
   }else {
     res.status(400).send('Bad request!')
   }
