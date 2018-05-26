@@ -59,11 +59,8 @@ app.post('*', (req, res) => {
    // let reponse =  `END ` + personalDetails
   
     res.send(response)
-    
-  }else if(text == '3'+ response){
-  //let response = `CON `+personalDetails + ` `
-  console.log(personalDetails)
-    res.send(personalDetails)
+     response = `END here`
+    res.send(response)
   }else {
     res.status(400).send('Bad request!')
   }
