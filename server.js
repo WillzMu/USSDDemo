@@ -15,7 +15,7 @@ app.get('*', (req, res) => {
 })
 
 app.post('*', (req, res) => {
-  let {sessionId, serviceCode, phoneNumber, text} = req.body
+  let {sessionId, serviceCode, phoneNumber, text, fullname} = req.body
   var personalDetails = ["wilfred"]
   if (text == '') {
     // This is the first request. Note how we start the response with CON
@@ -55,12 +55,11 @@ app.post('*', (req, res) => {
   } else if(text == '3'){
     let response = `CON Personal Information
     1. Full Name`
-    personalDetails.push(response)
-   // let reponse =  `END ` + personalDetails
-  
+    let fullname = response
     res.send(response)
-     response = `END here`
-    res.send(response)
+    
+  }else if(text == fullname){
+    console.log(fullname)
   }else {
     res.status(400).send('Bad request!')
   }
